@@ -1,5 +1,9 @@
 import { useCallback } from "react";
 import { useState } from "react"
+import Github from "./Components/Github";
+import UserContextProvider from "./Context/UserContextProvider";
+import Input from "./Components/Input";
+import Profile from "./Components/Profile";
 
 function App() {
   const arr=["Superman","badman","siatama","tibetman"]
@@ -15,6 +19,11 @@ function App() {
   }
   return (
      <div className=" bg-[#212121] h-screen w-full text-white flex items-center justify-center flex-col">
+      <UserContextProvider>
+        <Input/>
+        <Profile/>
+      </UserContextProvider>
+      <Github/>
       <h1 className=" text-lg ">Anime Name Generator</h1>
       <div className=" bg-slate-50 px-3 py-4 text-black rounded-lg ">
       <input type="text" className=" border-none outline-none w-full " value={animename} placeholder="Random" readOnly/>
